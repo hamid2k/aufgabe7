@@ -1,0 +1,15 @@
+public class GooglePay extends PaymentMethod {
+	private double googleZahlung;
+
+	@Override
+	public double processPayment(double amount) {
+		googleZahlung = amount;
+		return googleZahlung;
+	}
+
+	public double refundPayment() {
+		double refundAmount = googleZahlung;
+		return refundAmount;
+	}
+
+}
