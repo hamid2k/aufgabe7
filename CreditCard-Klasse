@@ -1,0 +1,14 @@
+public class CreditCard extends PaymentMethod {
+	private double creditCardZahlung;
+
+	@Override
+	public double processPayment(double amount) {
+		creditCardZahlung = amount;
+		return amount;
+	}
+
+	public double refundPayment() {
+		double refundAmount = creditCardZahlung;
+		return refundAmount;
+	}
+}
