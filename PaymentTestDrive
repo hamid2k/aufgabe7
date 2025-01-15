@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+
+public class PaymentTestDrive {
+	public static void main(String[] args) {
+		ArrayList<PaymentMethod> paymentMethod = new ArrayList<>();
+
+		CreditCard creditCard = new CreditCard();
+		PayPal payPal = new PayPal();
+		GooglePay googlePay = new GooglePay();
+
+		creditCard.setHolder("Jana");
+		payPal.setHolder("Florian");
+		googlePay.setHolder("Alex");
+
+		paymentMethod.add(creditCard);
+		paymentMethod.add(payPal);
+		paymentMethod.add(googlePay);
+
+		// ArrayList test(String erwartet , Double erwartet)..
+		for (PaymentMethod method : paymentMethod) {
+			System.out.println(method.getHolder() + " Paid " + method.processPayment(100.00) + " Euro ");
+		}
+
+		for (PaymentMethod method : paymentMethod) {
+			if (method instanceof CreditCard) {
+				System.out.println(
+						method.getHolder() + " Paid " + method.processPayment(200.00) + " EUR by credit card. ");
+			} else if (method instanceof PayPal) {
+				System.out
+						.println(method.getHolder() + " Paid " + method.processPayment(150.00) + " EUR using Paypal. ");
+			} else if (method instanceof GooglePay) {
+				System.out.println(
+						method.getHolder() + " Paid " + method.processPayment(180.00) + " EUR using GooglePay. ");
+			} else {
+				System.out.println("Unknown payment method: " + method);
+			}
+		}
+
+		for (PaymentMethod method : paymentMethod) {
+			if (method instanceof CreditCard) {
+				double refund = creditCard.refundPayment();
+				System.out.println(method.getHolder() + " received a refund of " + refund + " EUR by credit card. ");
+			} else if (method instanceof PayPal) {
+				double refund = payPal.refundPayment();
+				System.out.println(method.getHolder() + " received a refund of " + refund + " EUR via PayPal. ");
+			} else if (method instanceof GooglePay) {
+				double refund = googlePay.refundPayment();
+				System.out.println(method.getHolder() + " received a refund of " + refund + " EUR via PayPal. ");
+			} else {
+				System.out.println("Unknown payment method: " + method);
+			}
+		}
+	}
+}
