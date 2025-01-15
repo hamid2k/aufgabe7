@@ -1,0 +1,14 @@
+public class PayPal extends PaymentMethod {
+	private double payPalZahlung;
+
+	@Override
+	public double processPayment(double amount) {
+		payPalZahlung = amount;
+		return amount;
+	}
+
+	public double refundPayment() {
+		double refundAmount = payPalZahlung;
+		return refundAmount;
+	}
+}
