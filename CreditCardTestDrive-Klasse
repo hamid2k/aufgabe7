@@ -1,0 +1,61 @@
+public class CreditCardTestDrive {
+	public static void main(String[] args) {
+
+		CreditCard creditcard = new CreditCard();
+		creditcard.setHolder("Jana");
+		System.out.println(
+				creditcard.getHolder() + " Paid " + creditcard.processPayment(100.00) + " EUR by credit card.");
+
+		// creditcard name test(String erwartet)..
+		if (creditcard.getHolder().equals("Jana")) {
+			System.out.println("The name is correct");
+		} else {
+			System.out.println("The name is invalid");
+		}
+		// creditcard amount test(Double erwartet)..
+		double creditCardAmount = creditcard.processPayment(100.00);
+		if (creditCardAmount == 100.00) {
+			System.out.println("The amount is correct");
+		} else {
+			System.out.println("The amount is invalid");
+		}
+
+		PayPal paypal = new PayPal();
+		paypal.setHolder("Florian");
+		System.out.println(paypal.getHolder() + " Paid " + paypal.processPayment(100.00) + " EUR using PayPal.");
+
+		// paypal name test(String erwartet)..
+		if (paypal.getHolder().equals("Florian")) {
+			System.out.println("The name is correct");
+		} else {
+			System.out.println("The name is invalid");
+		}
+		// paypal amount test(Double erwartet)..
+		double payPalAmount = creditcard.processPayment(100.00);
+		if (payPalAmount == 100.00) {
+			System.out.println("The amount is correct");
+		} else {
+			System.out.println("The amount is invalid");
+		}
+
+		GooglePay googlepay = new GooglePay();
+		googlepay.setHolder("Alex");
+		System.out
+				.println(googlepay.getHolder() + " Paid " + googlepay.processPayment(100.00) + " EUR using GooglePay.");
+
+		// google name test(String erwartet)..
+		if (googlepay.getHolder().equals("Alex")) {
+			System.out.println("The name is correct");
+		} else {
+			System.out.println("The name is invalid");
+		}
+		// google amount test(Double erwartet)..
+		double googleAmount = creditcard.processPayment(100.00);
+		if (googleAmount == 100.00) {
+			System.out.println("The amount is correct");
+		} else {
+			System.out.println("The amount is invalid");
+		}
+	}
+
+}
