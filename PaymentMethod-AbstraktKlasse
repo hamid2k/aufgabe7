@@ -1,0 +1,13 @@
+public abstract class PaymentMethod {
+	private String holder;
+
+	public String getHolder() {
+		return holder;
+	}
+
+	public void setHolder(String newHolder) {
+		holder = newHolder;
+	}
+
+	public abstract double processPayment(double amount);
+}
